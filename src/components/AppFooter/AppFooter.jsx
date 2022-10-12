@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+import { ROUTES } from '../../constants/routes';
 import styles from './AppFooter.module.scss';
 
 const AppFooter = () => {
@@ -10,10 +12,11 @@ const AppFooter = () => {
             <p>Copyrights © 2020. All Rights Reserved.</p>
           </div>
           <div className={styles.links}>
-            <a href="#">Home</a>
-            <a href="#">About me</a>
-            <a href="#">Categories</a>
-            <a href="#">Contact</a>
+            {ROUTES.map(route => (
+              <Link to={route.path} key={route.name}>
+                {route.name}
+              </Link>
+            ))}
           </div>
         </div>
       </div>
