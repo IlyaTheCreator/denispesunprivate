@@ -1,5 +1,12 @@
 @import '../../assets/styles/colors';
 
+.header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
 .top-wrapper {
   display: flex;
   justify-content: space-between;
@@ -10,6 +17,16 @@
     font-size: 2rem;
     color: $color-dark;
   }
+}
+
+.dark {
+  * {
+    color: $color-white !important;
+  }
+}
+
+.inNav {
+  z-index: 10000;
 }
 
 .icon {
