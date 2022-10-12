@@ -1,13 +1,12 @@
-import AppFooter from '../../components/AppFooter/AppFooter';
-import AppHeader from '../../components/AppHeader/AppHeader';
+import { Link } from 'react-router-dom';
 
 import styles from './Home.module.scss';
 
 const Home = () => {
   return (
     <div className={styles['home-page']}>
-      <AppHeader />
-      <AppFooter />
+      <h1>hello testing here</h1>
+      <Link to="/about">about</Link>
     </div>
   );
 };
