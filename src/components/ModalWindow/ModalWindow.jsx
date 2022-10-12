@@ -7,7 +7,7 @@ import styles from "./ModalWindow.module.scss"
 const ModalWindow = ({active, setActive}) => {
     return (
         <div className={styles.modal}>
-            <div className={styles.modalContent} onClick={e => e.stopPropagation()}>
+            <div className={styles.modalContent}>
                 
             </div>  
         </div>
