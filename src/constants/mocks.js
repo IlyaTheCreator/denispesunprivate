@@ -31,3 +31,9 @@ export const MOCK_ARTICLE = {
   title: lorem.generateWords(getNumberFromRange(4, 12)),
   content: MOCK_CONTENT,
 };
+
+export const MOCK_ARTICLES_LIST = Array.from(Array(50).keys()).map(() => ({
+  imageUrl: getRandomImageUrl(),
+  title: lorem.generateWords(getNumberFromRange(4, 12)),
+  description: lorem.generateWords(getNumberFromRange(7, 20)) + '...',
+}));
