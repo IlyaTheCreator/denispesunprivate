@@ -11,7 +11,7 @@ const Article = ({ data: { title, content } }) => {
   }, []);
 
   return (
-    <>
+    <div className="page">
       <HeaderImage url={getRandomImageUrl()} />
       <div className={`container ${styles.wrapper}`}>
         <div className={styles.content}>
@@ -19,7 +19,7 @@ const Article = ({ data: { title, content } }) => {
           <p ref={contentRef} className={styles['content-text']} />
         </div>
       </div>
-    </>
+    </div>
   );
 };
 
