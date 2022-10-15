@@ -10,10 +10,12 @@
   },
   "dependencies": {
     "@chakra-ui/icons": "^2.0.11",
+    "@chakra-ui/react": "^2.3.5",
     "@chakra-ui/system": "^2.2.12",
     "@emotion/react": "^11.10.4",
     "@emotion/styled": "^11.10.4",
     "@reduxjs/toolkit": "^1.8.5",
+    "framer-motion": "^7.5.3",
     "lorem-ipsum": "^2.0.8",
     "node-sass": "^7.0.3",
     "react": "^18.2.0",
