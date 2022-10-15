@@ -1,0 +1,33 @@
+@import '../../assets/styles/colors';
+
+.wrapper {
+  background: $color-white;
+  position: relative;
+  top: -30vh;
+  min-height: 100vh;
+}
+
+.content {
+  max-width: 700px;
+  margin: 0 auto;
+
+  img {
+    width: 100%;
+    margin: 2rem auto;
+  }
+}
+
+.title {
+  text-align: center;
+  font-size: 4rem;
+  margin: 2rem auto;
+  text-transform: capitalize;
+}
+
+.content-text {
+  max-width: 700px;
+  margin: 0 auto;
+  white-space: pre-wrap;
+  font-size: 16px;
+  line-height: 26px;
+}
