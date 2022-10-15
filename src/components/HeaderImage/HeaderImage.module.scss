@@ -1,6 +1,55 @@
+@import '../../assets/styles/colors';
+
 .header-image {
+  position: relative;
   height: 100vh;
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
+}
+
+.container_content {
+  min-height: 498px;
+  max-width: 705px;
+  background: $color-white;
+  position: absolute;
+  bottom: 0;
+  padding: 45px;
+}
+
+.contents {
+  display: flex;
+  flex-direction: column;
+  .header_contents {
+    padding: 20px;
+  }
+
+  .body_contents {
+    display: flex;
+    flex-direction: column;
+    padding: 5px;
+    h4 {
+      font-size: 20px;
+      font-weight: bold;
+    } 
+
+    h1 {
+      font-size: 64px;
+      font-weight: bold;
+    }
+
+    span {
+      font-size: 21px;
+      color: $color-gray;
+    }
+
+    button {
+      width: 170px;
+      align-self: flex-start;
+      background: $color-dark;
+      color: $color-white;
+      padding: 1rem 0;
+      margin-top: 1rem;
+    }
+  }
 }
