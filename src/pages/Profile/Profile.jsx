@@ -1,12 +1,15 @@
+import MockPageWrapper from '../../components/MockPageWrapper/MockPageWrapper';
 import styles from './Profile.module.scss';
 
 const Profile = () => {
   return (
-    <div className="page">
-      <div className="container">
-        <div className={styles.profile}>Profile</div>
+    <MockPageWrapper>
+      <div className="page">
+        <div className="container">
+          <div className={styles.profile}>Profile</div>
+        </div>
       </div>
-    </div>
+    </MockPageWrapper>
   );
 };
 
