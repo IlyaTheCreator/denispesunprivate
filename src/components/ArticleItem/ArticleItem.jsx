@@ -11,7 +11,10 @@ const ArticleItem = ({ data: { imageUrl, title, description } }) => {
         <h3>{title}</h3>
         <p>{description}</p>
       </div>
-      <Link to="/article">
+      <Link
+        onClick={() => window.scrollTo({ top: 0, left: 0 })}
+        to="/article"
+      >
         <button>Read more</button>
       </Link>
     </div>

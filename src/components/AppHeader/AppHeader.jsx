@@ -1,5 +1,6 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { CloseIcon, HamburgerIcon, SearchIcon } from '@chakra-ui/icons';
+import { Link } from 'react-router-dom';
 
 import styles from './AppHeader.module.scss';
 import { toggleNav } from '../../store/reducers/nav.reducer';
@@ -7,6 +8,16 @@ import { toggleNav } from '../../store/reducers/nav.reducer';
 const AppHeader = () => {
   const isOpened = useSelector(state => state.nav.isOpened);
   const dispatch = useDispatch();
+
+  const handleOpenNav = () => {
+    dispatch(toggleNav());
+    document.querySelector('body').style.overflowY = 'visible';
+  };
+
+  const handleCloseNav = () => {
+    dispatch(toggleNav());
+    document.querySelector('body').style.overflowY = 'hidden';
+  };
 
   const wrapperClasses = [styles['top-wrapper']];
   const headerClassses = [styles.header];
@@ -22,15 +33,29 @@ const AppHeader = () => {
         <div className={wrapperClasses.join(' ')}>
           <div className={styles.icon}>
             {isOpened ? (
-              <CloseIcon onClick={() => dispatch(toggleNav())} />
+              <CloseIcon onClick={handleOpenNav} />
             ) : (
-              <HamburgerIcon onClick={() => dispatch(toggleNav())} />
+              <HamburgerIcon onClick={handleCloseNav} />
             )}
           </div>
-          <h1>Personal Travel Blog</h1>
-          <div className={styles.icon}>
-            <SearchIcon />
-          </div>
+          <Link to="/">
+            <h1>Personal Travel Blog</h1>
+          </Link>
+          {!isOpened ? (
+            <div className={styles.right}>
+              <div className={styles.icon}>
+                <SearchIcon />
+              </div>
+              <div className={styles.divider}>|</div>
+              <Link className={styles['profile-link']} to="/profile">
+                profile
+              </Link>
+            </div>
+          ) : (
+            <div className={styles.icon}>
+              <SearchIcon />
+            </div>
+          )}
         </div>
       </div>
     </header>
