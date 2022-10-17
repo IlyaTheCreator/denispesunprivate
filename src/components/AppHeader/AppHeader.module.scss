@@ -39,3 +39,18 @@
     height: 100%;
   }
 }
+
+.right {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.divider {
+  margin: 0 0.7rem;
+}
+
+.profile-link {
+  margin-top: -5px;
+  font-size: 1.5rem;
+}

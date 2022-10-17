@@ -1,6 +1,7 @@
 import { useDisclosure } from '@chakra-ui/react';
 
 import { Link } from 'react-router-dom';
+import MockPageWrapper from '../../components/MockPageWrapper/MockPageWrapper';
 import Modal from '../../components/Modal/Modal';
 import styles from './About.module.scss';
 
@@ -25,7 +26,7 @@ const About = () => {
   );
 
   return (
-    <>
+    <MockPageWrapper>
       {modalExample}
       <div className="page">
         <div className={styles['about-page']}>
@@ -36,7 +37,7 @@ const About = () => {
           </div>
         </div>
       </div>
-    </>
+    </MockPageWrapper>
   );
 };
 

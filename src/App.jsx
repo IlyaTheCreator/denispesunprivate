@@ -9,6 +9,8 @@ import { MOCK_ARTICLE } from './constants/mocks';
 import Home from './pages/Home/Home';
 import About from './pages/About/About';
 import Article from './pages/Article/Article';
+import Profile from './pages/Profile/Profile';
+
 import Layout from './components/Layout/Layout';
 
 const theme = extendTheme({
@@ -30,6 +32,7 @@ const App = () => {
                 path="/article"
                 element={<Article data={MOCK_ARTICLE} />}
               />
+              <Route path="/profile" element={<Profile />} />
             </Routes>
           </Layout>
         </ChakraProvider>
