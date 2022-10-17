@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { MOCK_LOADING_TIME_MS } from '../../constants/ui';
-import Loader from '../Loader/Loader';
+import PageLoader from '../PageLoader/PageLoader';
 
 const MockPageWrapper = ({ children }) => {
   const [loaded, setLoaded] = useState(false);
@@ -14,7 +14,7 @@ const MockPageWrapper = ({ children }) => {
     return () => clearTimeout(timeoutId);
   }, []);
 
-  return loaded ? children : <Loader />;
+  return loaded ? children : <PageLoader />;
 };
 
 export default MockPageWrapper;

@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 
 import styles from './AppHeader.module.scss';
 import { toggleNav } from '../../store/reducers/nav.reducer';
+import setBodyOverflow from '../../helpers/setBodyOverflow';
 
 const AppHeader = () => {
   const isOpened = useSelector(state => state.nav.isOpened);
@@ -11,12 +12,12 @@ const AppHeader = () => {
 
   const handleOpenNav = () => {
     dispatch(toggleNav());
-    document.querySelector('body').style.overflowY = 'visible';
+    setBodyOverflow('visible');
   };
 
   const handleCloseNav = () => {
     dispatch(toggleNav());
-    document.querySelector('body').style.overflowY = 'hidden';
+    setBodyOverflow('hidden');
   };
 
   const wrapperClasses = [styles['top-wrapper']];
