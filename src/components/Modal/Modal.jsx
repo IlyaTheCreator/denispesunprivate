@@ -1,3 +1,4 @@
+import MyButton from '../UI/FormButtons/MyButton';
 import {
   Button,
   Modal as ChakraModal,
@@ -8,6 +9,7 @@ import {
   ModalBody,
   ModalFooter,
 } from '@chakra-ui/react';
+
 
 const Modal = ({
   isOpen,
@@ -29,7 +31,11 @@ const Modal = ({
       <ModalContent sx={{ borderRadius: 0 }}>
         <ModalHeader>{title}</ModalHeader>
         <ModalCloseButton />
-        <ModalBody>{children}</ModalBody>
+        <ModalBody>
+          <MyButton>
+            Авторизация
+          </MyButton>
+        </ModalBody>
         <ModalFooter>
           <Button
             sx={{ borderRadius: 0 }}
