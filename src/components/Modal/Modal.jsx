@@ -10,7 +10,6 @@ import {
   ModalFooter,
 } from '@chakra-ui/react';
 
-
 const Modal = ({
   isOpen,
   onClose,
@@ -31,11 +30,7 @@ const Modal = ({
       <ModalContent sx={{ borderRadius: 0 }}>
         <ModalHeader>{title}</ModalHeader>
         <ModalCloseButton />
-        <ModalBody>
-          <MyButton>
-            Авторизация
-          </MyButton>
-        </ModalBody>
+        <ModalBody>{children}</ModalBody>
         <ModalFooter>
           <Button
             sx={{ borderRadius: 0 }}

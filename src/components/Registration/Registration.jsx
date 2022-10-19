@@ -1,36 +1,28 @@
 import MyInput from '../UI/FormInputs/MyInput';
-import MyButton from '../UI/FormButtons/MyButton';
 import styles from './Registration.module.scss';
+import Modal from '../Modal/Modal';
 
-const Registration = () => {
-    return (
-        <div className={styles.container_form}>
-            <div className={styles.container_auth}>
-                <form>
-                    <h1>Авторизация</h1>
-
-                    <MyInput 
-                        type="text"
-                        placeholder="Логин"
-                    />
-                    <MyInput
-                        type="password"
-                        name="password"
-                        placeholder="Пароль"
-                    />
-                    <MyInput
-                        type="password"
-                        name="repeate_password"
-                        placeholder="Повторить пароль"
-                    />  
-
-                    <MyButton>
-                        Подтвердить
-                    </MyButton>
-                </form>
-            </div>
-        </div>
-    );
+const Registration = ({ isOpen, onClose }) => {
+  return (
+    <Modal
+      isOpen={isOpen}
+      onClose={onClose}
+      title="Registration"
+      mainActionText="Submit"
+      secondaryActionText="Cancel"
+      size="xl"
+    >
+      <form>
+        <MyInput type="text" placeholder="Login" />
+        <MyInput type="password" name="password" placeholder="Password" />
+        <MyInput
+          type="password"
+          name="repeat_password"
+          placeholder="Repeat password"
+        />
+      </form>
+    </Modal>
+  );
 };
 
 export default Registration;
