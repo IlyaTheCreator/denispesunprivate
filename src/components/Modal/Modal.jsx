@@ -9,6 +9,7 @@ import {
   ModalBody,
   ModalFooter,
 } from '@chakra-ui/react';
+import { useState } from 'react';
 
 const Modal = ({
   isOpen,
@@ -19,6 +20,12 @@ const Modal = ({
   size, // 'xs', 'sm', 'md', 'lg', 'xl', 'full'
   children,
 }) => {
+  const [data, setData] = useState('');
+
+  const getData = () => {
+    setData(data);
+    console.log(data);
+  };
   return (
     <ChakraModal
       size={size ? size : 'md'}
@@ -36,12 +43,16 @@ const Modal = ({
             sx={{ borderRadius: 0 }}
             colorScheme="blue"
             mr={3}
-            onClick={onClose}
+            onClick={getData}
           >
             {mainActionText}
           </Button>
           {secondaryActionText && (
-            <Button sx={{ borderRadius: 0 }} variant="ghost">
+            <Button
+              sx={{ borderRadius: 0 }}
+              variant="ghost"
+              onClick={onClose}
+            >
               {secondaryActionText}
             </Button>
           )}
