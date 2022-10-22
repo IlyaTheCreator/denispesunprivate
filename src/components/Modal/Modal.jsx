@@ -1,4 +1,3 @@
-import MyButton from '../UI/FormButtons/MyButton';
 import {
   Button,
   Modal as ChakraModal,
@@ -14,9 +13,10 @@ const Modal = ({
   isOpen,
   onClose,
   mainActionText,
+  mainAction,
   secondaryActionText,
   title,
-  size, // 'xs', 'sm', 'md', 'lg', 'xl', 'full'
+  size, // 'xs', 'sm', 'md', 'lg', 'xl', 'full', etc
   children,
 }) => {
   return (
@@ -33,15 +33,19 @@ const Modal = ({
         <ModalBody>{children}</ModalBody>
         <ModalFooter>
           <Button
+            onClick={mainAction}
             sx={{ borderRadius: 0 }}
             colorScheme="blue"
             mr={3}
-            onClick={onClose}
           >
             {mainActionText}
           </Button>
           {secondaryActionText && (
-            <Button sx={{ borderRadius: 0 }} variant="ghost">
+            <Button
+              sx={{ borderRadius: 0 }}
+              variant="ghost"
+              onClick={onClose}
+            >
               {secondaryActionText}
             </Button>
           )}
