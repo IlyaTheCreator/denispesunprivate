@@ -10,7 +10,47 @@ const Registration = ({ isOpen, onClose }) => {
 
   const handleSubmit = () => {
     console.log({ login, password, passwordRepeat });
-    onClose();
+
+    if (login.length == 0) {
+      console.log('Поле логин не было заполнено!');
+      setLogin('');
+    }
+
+    if (login.length < 3) {
+      console.log('Логин должен быть длинее 3 символов!');
+      setLogin('');
+    }
+
+    if (login.includes(' ')) {
+      console.log('Логин не должен содержать пробелы!');
+      setLogin('');
+    }
+
+    if (password.length == 0) {
+      console.log('Поле пароль не было заполнено!');
+      setPassword('');
+    }
+
+    if (password.length < 6) {
+      console.log('Пароль должен быть длинее 6 символов!');
+      setPassword('');
+    }
+
+    if (password.includes(' ')) {
+      console.log('Пароль не должен содержать пробелы!');
+      setPassword('');
+    }
+
+    const stepSimbol = /[A-Z]/;
+    if (!stepSimbol.test(password)) {
+      console.log('У пароля должна быть минимум одна заглавная буква!');
+      setPassword('');
+    }
+
+    if (passwordRepeat != password) {
+      console.log('Пароли не совпадают!');
+      setPasswordRepeat('');
+    }
 
     setLogin('');
     setPassword('');

@@ -8,7 +8,6 @@ import {
   ModalBody,
   ModalFooter,
 } from '@chakra-ui/react';
-import { useState } from 'react';
 
 const Modal = ({
   isOpen,
@@ -20,12 +19,6 @@ const Modal = ({
   size, // 'xs', 'sm', 'md', 'lg', 'xl', 'full', etc
   children,
 }) => {
-  const [data, setData] = useState('');
-
-  const getData = () => {
-    setData(data);
-    console.log(data);
-  };
   return (
     <ChakraModal
       size={size ? size : 'md'}
