@@ -1,6 +1,7 @@
 import { useDisclosure } from '@chakra-ui/react';
 
 import { Link } from 'react-router-dom';
+import Registration from '../../components/Registration/Registration';
 import MockPageWrapper from '../../components/MockPageWrapper/MockPageWrapper';
 import Modal from '../../components/Modal/Modal';
 import styles from './About.module.scss';
@@ -28,6 +29,7 @@ const About = () => {
   return (
     <MockPageWrapper>
       {modalExample}
+      <Registration/>
       <div className="page">
         <div className={styles['about-page']}>
           <div className="container">
