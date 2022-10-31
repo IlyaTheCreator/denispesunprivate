@@ -1,12 +1,12 @@
 .myBtn {
-    background: #000;
-    padding: 13px;
-    border-radius: 13px;
-    color: #fff;
-    font-size: 16px;
+  background: #000;
+  padding: 13px;
+  border-radius: 13px;
+  color: #fff;
+  font-size: 16px;
 
-    &:hover {
-        transition: all 500ms ease;
-        background: rgb(46, 45, 45);
-    }
+  &:hover {
+    transition: all 500ms ease;
+    background: rgb(46, 45, 45);
+  }
 }

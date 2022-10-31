@@ -5,11 +5,13 @@ import { Link } from 'react-router-dom';
 import styles from './AppHeader.module.scss';
 import { toggleNav } from '../../store/reducers/nav.reducer';
 import setBodyOverflow from '../../helpers/setBodyOverflow';
+import Authorization from '../Authorization/Authorization';
+import Registration from '../Registration/Registration';
 import MyButton from '../UI/FormButtons/MyButton';
 import { useDisclosure } from '@chakra-ui/react';
-import Registration from '../Registration/Registration';
 
 const IS_REGISTERED = false;
+const IS_AUTHORIZED = false;
 
 const AppHeader = () => {
   const isMenuOpened = useSelector(state => state.nav.isOpened);
@@ -18,6 +20,12 @@ const AppHeader = () => {
     isOpen: isRegisterOpen,
     onOpen: onRegisterOpen,
     onClose: onRegisterClose,
+  } = useDisclosure();
+
+  const {
+    isOpen: isAuthOpen,
+    onOpen: onAuthOpen,
+    onClose: onAuthClose,
   } = useDisclosure();
 
   const handleOpenNav = () => {
@@ -40,6 +48,7 @@ const AppHeader = () => {
 
   return (
     <>
+      <Authorization isOpen={isAuthOpen} onClose={onAuthClose} />
       <Registration isOpen={isRegisterOpen} onClose={onRegisterClose} />
       <header className={headerClassses.join(' ')}>
         <div className="container">
@@ -60,6 +69,9 @@ const AppHeader = () => {
                   <SearchIcon />
                 </div>
                 <div className={styles.divider}>|</div>
+                {!IS_AUTHORIZED && (
+                  <MyButton onClick={onAuthOpen}>Login</MyButton>
+                )}
                 {!IS_REGISTERED ? (
                   <MyButton onClick={onRegisterOpen}>Sign Up</MyButton>
                 ) : (
