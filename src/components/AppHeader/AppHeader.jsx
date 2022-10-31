@@ -5,10 +5,20 @@ import { Link } from 'react-router-dom';
 import styles from './AppHeader.module.scss';
 import { toggleNav } from '../../store/reducers/nav.reducer';
 import setBodyOverflow from '../../helpers/setBodyOverflow';
+import MyButton from '../UI/FormButtons/MyButton';
+import { useDisclosure } from '@chakra-ui/react';
+import Registration from '../Registration/Registration';
+
+const IS_REGISTERED = false;
 
 const AppHeader = () => {
-  const isOpened = useSelector(state => state.nav.isOpened);
+  const isMenuOpened = useSelector(state => state.nav.isOpened);
   const dispatch = useDispatch();
+  const {
+    isOpen: isRegisterOpen,
+    onOpen: onRegisterOpen,
+    onClose: onRegisterClose,
+  } = useDisclosure();
 
   const handleOpenNav = () => {
     dispatch(toggleNav());
@@ -23,43 +33,50 @@ const AppHeader = () => {
   const wrapperClasses = [styles['top-wrapper']];
   const headerClassses = [styles.header];
 
-  if (isOpened) {
+  if (isMenuOpened) {
     wrapperClasses.push(styles.dark);
     headerClassses.push(styles.inNav);
   }
 
   return (
-    <header className={headerClassses.join(' ')}>
-      <div className="container">
-        <div className={wrapperClasses.join(' ')}>
-          <div className={styles.icon}>
-            {isOpened ? (
-              <CloseIcon onClick={handleOpenNav} />
+    <>
+      <Registration isOpen={isRegisterOpen} onClose={onRegisterClose} />
+      <header className={headerClassses.join(' ')}>
+        <div className="container">
+          <div className={wrapperClasses.join(' ')}>
+            <div className={styles.icon}>
+              {isMenuOpened ? (
+                <CloseIcon onClick={handleOpenNav} />
+              ) : (
+                <HamburgerIcon onClick={handleCloseNav} />
+              )}
+            </div>
+            <Link to="/">
+              <h1>Personal Travel Blog</h1>
+            </Link>
+            {!isMenuOpened ? (
+              <div className={styles.right}>
+                <div className={styles.icon}>
+                  <SearchIcon />
+                </div>
+                <div className={styles.divider}>|</div>
+                {!IS_REGISTERED ? (
+                  <MyButton onClick={onRegisterOpen}>Sign Up</MyButton>
+                ) : (
+                  <Link className={styles['profile-link']} to="/profile">
+                    profile
+                  </Link>
+                )}
+              </div>
             ) : (
-              <HamburgerIcon onClick={handleCloseNav} />
-            )}
-          </div>
-          <Link to="/">
-            <h1>Personal Travel Blog</h1>
-          </Link>
-          {!isOpened ? (
-            <div className={styles.right}>
               <div className={styles.icon}>
                 <SearchIcon />
               </div>
-              <div className={styles.divider}>|</div>
-              <Link className={styles['profile-link']} to="/profile">
-                profile
-              </Link>
-            </div>
-          ) : (
-            <div className={styles.icon}>
-              <SearchIcon />
-            </div>
-          )}
+            )}
+          </div>
         </div>
-      </div>
-    </header>
+      </header>
+    </>
   );
 };
 
