@@ -1,0 +1,27 @@
+.title {
+  margin-bottom: 20px;
+  h1 {
+    font-size: 64px;
+  }
+}
+
+.user_info {
+  display: flex;
+  flex-wrap: wrap;
+  height: 100vh;
+}
+
+.image_block {
+  width: 705px;
+  height: 511px;
+
+  h3 {
+    font-size: 16px;
+  }
+}
+
+.baseInfo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
