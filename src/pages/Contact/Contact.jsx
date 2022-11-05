@@ -1,5 +1,6 @@
 import styles from './Contact.module.scss';
 import MyInput from '../../components/UI/FormInputs/MyInput';
+import MyButton from '../../components/UI/FormButtons/MyButton';
 import HeaderImage from '../../components/HeaderImage/HeaderImage';
 import { MOCK_ARTICLES_LIST } from '../../constants/mocks';
 import { WELCOME_IMAGE_URL } from '../../constants/ui';
@@ -16,7 +17,10 @@ const Contact = () => {
           </div>
           <div className={styles.user_info}>
             <div className={styles.image_block}>
-              <HeaderImage url={WELCOME_IMAGE_URL} />
+              <img
+                src="https://abrakadabra.fun/uploads/posts/2022-01/1641166344_2-abrakadabra-fun-p-oboi-zakat-solntsa-3.jpg"
+                alt="ANEBUDETKARTINKI"
+              />
               <h3>
                 Donec accumsan purus nec ligula volutpat posuere. Integer
                 lectus lorem, mollis eget varius condimentum, vehicula eu
@@ -36,6 +40,7 @@ const Contact = () => {
                 <MyInput placeholder="Subject" />
                 <MyInput placeholder="Your messeage" />
               </div>
+              <MyButton>Send</MyButton>
             </div>
           </div>
         </div>
