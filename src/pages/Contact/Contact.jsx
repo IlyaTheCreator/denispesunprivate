@@ -1,9 +1,6 @@
 import styles from './Contact.module.scss';
 import MyInput from '../../components/UI/FormInputs/MyInput';
 import MyButton from '../../components/UI/FormButtons/MyButton';
-import HeaderImage from '../../components/HeaderImage/HeaderImage';
-import { MOCK_ARTICLES_LIST } from '../../constants/mocks';
-import { WELCOME_IMAGE_URL } from '../../constants/ui';
 
 import MockPageWrapper from '../../components/MockPageWrapper/MockPageWrapper';
 
