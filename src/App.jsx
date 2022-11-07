@@ -10,6 +10,7 @@ import Home from './pages/Home/Home';
 import About from './pages/About/About';
 import Article from './pages/Article/Article';
 import Profile from './pages/Profile/Profile';
+import Contact from './pages/Contact/Contact';
 
 import Layout from './components/Layout/Layout';
 
@@ -33,6 +34,7 @@ const App = () => {
                 element={<Article data={MOCK_ARTICLE} />}
               />
               <Route path="/profile" element={<Profile />} />
+              <Route path="/contact" element={<Contact />} />
             </Routes>
           </Layout>
         </ChakraProvider>
