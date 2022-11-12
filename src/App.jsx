@@ -13,6 +13,7 @@ import Profile from './pages/Profile/Profile';
 import Contact from './pages/Contact/Contact';
 
 import Layout from './components/Layout/Layout';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 
 const theme = extendTheme({
   fonts: {
@@ -20,23 +21,27 @@ const theme = extendTheme({
   },
 });
 
+const queryClient = new QueryClient();
+
 const App = () => {
   return (
     <StoreProvider store={store}>
       <BrowserRouter>
         <ChakraProvider theme={theme}>
-          <Layout>
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/about" element={<About />} />
-              <Route
-                path="/article"
-                element={<Article data={MOCK_ARTICLE} />}
-              />
-              <Route path="/profile" element={<Profile />} />
-              <Route path="/contact" element={<Contact />} />
-            </Routes>
-          </Layout>
+          <QueryClientProvider client={queryClient}>
+            <Layout>
+              <Routes>
+                <Route path='/' element={<Home />} />
+                <Route path='/about' element={<About />} />
+                <Route
+                  path='/article'
+                  element={<Article data={MOCK_ARTICLE} />}
+                />
+                <Route path='/profile' element={<Profile />} />
+                <Route path='/contact' element={<Contact />} />
+              </Routes>
+            </Layout>
+          </QueryClientProvider>
         </ChakraProvider>
       </BrowserRouter>
     </StoreProvider>
