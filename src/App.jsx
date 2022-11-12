@@ -31,10 +31,11 @@ const App = () => {
           <QueryClientProvider client={queryClient}>
             <Layout>
               <Routes>
+                <Route path='*' element={<div className='page' style={{ minHeight: '100vh' }}>Not found</div>} />
                 <Route path='/' element={<Home />} />
                 <Route path='/about' element={<About />} />
                 <Route
-                  path='/article'
+                  path='/article/:id'
                   element={<Article data={MOCK_ARTICLE} />}
                 />
                 <Route path='/profile' element={<Profile />} />

@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import styles from './ArticleItem.module.scss';
 
 const ArticleItem = ({
-  data: { imageUrl, title, text },
+  data: { imageUrl, title, text, id },
   isProfile,
   onButtonClick,
 }) => {
@@ -18,7 +18,7 @@ const ArticleItem = ({
       {!isProfile ? (
         <Link
           onClick={() => window.scrollTo({ top: 0, left: 0 })}
-          to="/article"
+          to={`/article/${id}`}
         >
           <button>Read more</button>
         </Link>
