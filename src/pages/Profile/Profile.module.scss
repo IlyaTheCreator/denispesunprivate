@@ -1,7 +1,6 @@
 @import '../../assets/styles/colors';
 
 .user-info {
-  margin-bottom: 3rem;
   display: inline-block;
   padding: 5rem 5rem 5rem 0;
   border-bottom: 5px solid $color-dark;
@@ -25,4 +24,11 @@
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
   grid-gap: 3rem 1rem;
+}
+
+.flex-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 3rem;
 }
