@@ -19,6 +19,7 @@ const Authorization = ({ isOpen, onClose }) => {
     {
       onSuccess: (data) => {
         dispatch(setUser(data))
+        localStorage.setItem('user', JSON.stringify(data))
 
         setLogin('');
         setPassword('');
