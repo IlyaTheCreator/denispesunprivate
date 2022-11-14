@@ -9,13 +9,15 @@ import Authorization from '../Authorization/Authorization';
 import Registration from '../Registration/Registration';
 import MyButton from '../UI/FormButtons/MyButton';
 import { useDisclosure } from '@chakra-ui/react';
-
-const IS_REGISTERED = false;
-const IS_AUTHORIZED = false;
+import { setUser } from '../../store/reducers/user.reducer.js';
+import { useEffect } from 'react';
+import { flushSync } from 'react-dom';
 
 const AppHeader = () => {
   const isMenuOpened = useSelector(state => state.nav.isOpened);
   const dispatch = useDispatch();
+  const user = useSelector(store => store.user)
+
   const {
     isOpen: isRegisterOpen,
     onOpen: onRegisterOpen,
@@ -38,19 +40,24 @@ const AppHeader = () => {
     setBodyOverflow('hidden');
   };
 
+  const handleLogout = () => {
+    dispatch(setUser({}))
+    localStorage.removeItem('user')
+  }
+
   const wrapperClasses = [styles['top-wrapper']];
-  const headerClassses = [styles.header];
+  const headerClasses = [styles.header];
 
   if (isMenuOpened) {
     wrapperClasses.push(styles.dark);
-    headerClassses.push(styles.inNav);
+    headerClasses.push(styles.inNav);
   }
 
   return (
     <>
       <Authorization isOpen={isAuthOpen} onClose={onAuthClose} />
       <Registration isOpen={isRegisterOpen} onClose={onRegisterClose} />
-      <header className={headerClassses.join(' ')}>
+      <header className={headerClasses.join(' ')}>
         <div className="container">
           <div className={wrapperClasses.join(' ')}>
             <div className={styles.icon}>
@@ -69,15 +76,18 @@ const AppHeader = () => {
                   <SearchIcon />
                 </div>
                 <div className={styles.divider}>|</div>
-                {!IS_AUTHORIZED && (
+                {!user.id && (
                   <MyButton onClick={onAuthOpen}>Login</MyButton>
                 )}
-                {!IS_REGISTERED ? (
+                {!user.id ? (
                   <MyButton onClick={onRegisterOpen}>Sign Up</MyButton>
                 ) : (
-                  <Link className={styles['profile-link']} to="/profile">
-                    profile
-                  </Link>
+                  <>
+                    <Link className={styles['profile-link']} to="/profile">
+                      profile
+                    </Link>
+                    <MyButton onClick={handleLogout}>Logout</MyButton>
+                  </>
                 )}
               </div>
             ) : (
