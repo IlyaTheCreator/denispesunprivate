@@ -10,8 +10,6 @@ import Registration from '../Registration/Registration';
 import MyButton from '../UI/FormButtons/MyButton';
 import { useDisclosure } from '@chakra-ui/react';
 import { setUser } from '../../store/reducers/user.reducer.js';
-import { useEffect } from 'react';
-import { flushSync } from 'react-dom';
 
 const AppHeader = () => {
   const isMenuOpened = useSelector(state => state.nav.isOpened);
